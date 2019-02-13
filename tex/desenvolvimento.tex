@@ -1,0 +1,76 @@
+\chapter{DESENVOLVIMENTO}
+
+\section{EXPOSIÇÃO DO TEMA OU MATÉRIA}
+
+É a parte principal e mais extensa do trabalho. Deve apresentar a fundamentação teórica, a metodologia, os resultados e a discussão. Divide-se em seções e subseções conforme a NBR 6024~\cite{abnt14724}. Quanto a sua estrutura, segue as recomendações da norma para preparação de trabalhos acadêmicos, a NBR 14724 de 2011~\cite{abnt14724}. Quanto à Formatação, segue o modelo adotado pelo IFSC, o formato A4.
+
+
+\subsection{Formatação do texto}
+
+
+\subsubsection{As ilustrações}
+
+Independente do tipo de ilustração (quadro, desenho, figura, fotografia, mapa, entre outros) sua identificação aparece na parte superior, precedida da palavra designativa. 
+
+A indicação da fonte consultada deve aparecer na parte inferior, elemento obrigatório mesmo que seja produção do próprio autor. A ilustração deve ser citada no texto e inserida o mais próximo possível do texto a que se refere~\cite{abnt14724}. 
+
+A Figura \ref{fig:a} mostra o logo da BU
+\begin{figure}[!htb]
+   \centering
+   \caption{Logo da BU.}\label{fig:a}
+   \includegraphics[width=0.3\textwidth]{./img/brasaoBU.jpg}
+\end{figure}
+
+A Tabela~\ref{tab:a} mostra mais informações do template BU.
+
+\begin{table}[!htb]
+\begin{center}
+ \caption{Formatação do texto.}\label{tab:a}
+  \begin{tabular}{ p{3cm} | p{6cm} }
+    \hline
+Cor & Branco\\ \hline
+Formato do papel & A5\\ \hline
+Gramatura & 75\\ \hline
+Impressão & Frente e verso\\ \hline
+Margens & Espelhadas: superior 2, Inferior: 1,5, Externa 1,5 e Externa: 2.\\ \hline
+Cabeçalho & 0,7\\ \hline
+Rodapé & 0,7\\ \hline
+Paginação & Externa\\ \hline
+Alinhamento vertical & Superior\\ \hline
+Alinhamento do texto & Justificado\\ \hline
+Fonte sugerida & Times New Roman \\ \hline
+Tamanho da fonte & 10,5 para o texto incluindo os títulos das seções e subseções. As citações com mais de três linhas as legendas das ilustrações e tabelas, fonte 9,5.\\ \hline
+Espaçamento entre linhas & Um (1) simples\\ \hline
+Espaçamento entre parágrafos & Anterior 0,0; Posterior 0,0\\ \hline
+Numeração da seção & As seções  primárias devem  começar  sempre em páginas ímpares. Deixar um espaço (simples) entre o título da seção e o texto e  entre o texto e o título da subseção. \\  \hline
+  \end{tabular}
+\end{center}
+Fonte: Universidade Federal de Santa Catarina (2011)
+\end{table}
+
+
+
+\subsubsection{Equações e fórmulas}
+
+As equações e fórmulas devem ser destacadas no texto para facilitar a leitura.  Para numerá-las, deve-se usar algarismos arábicos entre parênteses e alinhados à direita. Pode-se usar uma entrelinha maior do que a usada no texto~\cite{abnt14724}.
+
+Exemplo: A equação \ref{eq:a}
+\begin{equation}
+ x^2 + y^2 = z^2
+ \label{eq:a}
+\end{equation}
+ e a equação  \ref{eq:b}
+\begin{equation}
+ x^2 + y^2 = n
+\label{eq:b}
+\end{equation}
+
+
+\subsubsection{Exemplo de citações no \LaTeX}
+
+Segundo \citeonline{alves_2001} ...
+
+...no final da frase \cite{abnt14724,BU_formatoA5}
+
+
+\nocite{alves_2001,abnt10520,abnt6024,abnt14724}

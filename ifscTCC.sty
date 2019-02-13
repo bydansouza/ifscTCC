@@ -1,0 +1,201 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina                      
+%---------------------------------------------------------------------------
+% Definicao do arquivo de estilo ifscTCC - Modelo de TCC para o IFSC
+%---------------------------------------------------------------------------
+% Versão 20191 - Baseada na classe 2018/11/24 v-1.9.7 abnTeX2
+%                                                           
+% (c)2019 Daniel Henrique Camargo de Souza (dansouza.mail@gmail.com)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                         
+% This file may be distributed and/or modified              
+%
+% 1. under the LaTeX Project Public License and/or          
+% 2. under the GNU Public License.                          
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                         
+% Variáveis identificadoras do trabalho
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                         
+%---------------------------------------------------------------------------
+% Instituicao
+\providecommand{\ABNTinstituicaodata}{Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina}
+\providecommand{\ABNTinstituicaogenerodata}{o}
+\renewcommand{\instituicao}[2][a]%
+    {\renewcommand{\ABNTinstituicaodata}{#2}\renewcommand{\ABNTinstituicaogenerodata}{#1}}
+
+\newcommand{\instituicaoformat}[1]{\bfseries\MakeUppercase{#1}}
+
+%---------------------------------------------------------------------------
+% Departamento
+\providecommand{\IFSCdepartamentodata}{Departamento Acad\^emico de Eletr\^onica}
+\providecommand{\IFSCdepartamentogenerodata}{o}
+\newcommand{\departamento}[2][o]%
+    {\renewcommand{\IFSCdepartamentodata}{#2}\renewcommand{\IFSCdepartamentogenerodata}{#1}}
+
+\newcommand{\departamentoformat}[1]{\bfseries\MakeUppercase{#1}}
+
+%---------------------------------------------------------------------------
+% Curso
+\providecommand{\IFSCcursodata}{Curso Superior em Engenharia Eletr\^onica}
+\providecommand{\IFSCcursogenerodata}{o}
+\newcommand{\curso}[2][o]%
+    {\renewcommand{\IFSCcursodata}{#2}\renewcommand{\IFSCcursogenerodata}{#1}}
+    
+\newcommand{\cursoformat}[1]{\bfseries\MakeUppercase{#1}}
+%---------------------------------------------------------------------------
+% Tipo do documento
+\providecommand{\IFSCdocumentodata}{TCC}
+\providecommand{\IFSCdocumentogenerodata}{o}
+\newcommand{\documento}[2][a]%
+    {\renewcommand{\IFSCdocumentodata}{#2} \renewcommand{\IFSCdocumentogenerodata}{#1} \detgenerodoc{#2}}
+
+%---------------------------------------------------------------------------
+% Titulo e subtítulo
+\newcommand{\tituloformat}[1]{\bfseries\MakeUppercase{#1}}
+
+\providecommand{\subtitulodata}{}
+\newcommand{\subtitulo}[1]{\renewcommand{\subtitulodata}{#1}}
+
+%---------------------------------------------------------------------------
+% Grau pretendido
+\providecommand{\graudata}{Doutor em Engenharia Mec\^anica}
+\newcommand{\grau}[1]{\renewcommand{\graudata}{#1}}
+
+%---------------------------------------------------------------------------
+% Coordenador do curso
+\providecommand{\coordenadorname}{}
+\providecommand{\coordenadortitulo}{}
+\newcommand{\coordenador}[2][Coordenador do Curso]
+    {
+    \renewcommand{\coordenadorname}{#2}%
+    \renewcommand{\coordenadortitulo}{#1}
+    }
+\newcommand{\coordenadorformat}{}
+
+%-!
+% Banca - Ate 7 membros, fora orientador e coorientador.
+% Se o nro de membros passar de 4, será criada uma folha adicional
+\newcommand{\bancaformat}{}
+
+\providecommand\orientadorbancadata{nao}
+\providecommand\coorientadorbancadata{nao}
+\providecommand\nrobanca{4}
+
+\newcommand\numerodemembrosnabanca[1]{\renewcommand\nrobanca{#1}}
+\newcommand\orientadornabanca[1]{\renewcommand\orientadorbancadata{#1}}
+\newcommand\coorientadornabanca[1]{\renewcommand\coorientadorbancadata{#1}}
+
+\providecommand{\bancanameA}{}
+\providecommand{\bancadataA}{}
+\newcommand{\bancaMembroA}[2][]% se for incluir Presidente colocar [aqui]
+    {\renewcommand{\bancanameA}{#2}%
+     \renewcommand{\bancadataA}{#1}}
+
+\providecommand{\bancanameB}{}
+\providecommand{\bancadataB}{}
+\newcommand{\bancaMembroB}[2][]%
+    {\renewcommand{\bancanameB}{#2}%
+     \renewcommand{\bancadataB}{#1}}
+
+\providecommand{\bancanameC}{}
+\providecommand{\bancadataC}{}
+\newcommand{\bancaMembroC}[2][]%
+    {\renewcommand{\bancanameC}{#2}%
+     \renewcommand{\bancadataC}{#1}}
+
+\providecommand{\bancanameD}{}
+\providecommand{\bancadataD}{}
+\newcommand{\bancaMembroD}[2][]%
+    {\renewcommand{\bancanameD}{#2}%
+     \renewcommand{\bancadataD}{#1}}
+
+\providecommand{\bancanameE}{}
+\providecommand{\bancadataE}{}
+\newcommand{\bancaMembroE}[2][]%
+    {\renewcommand{\bancanameE}{#2}%
+     \renewcommand{\bancadataE}{#1}}
+
+\providecommand{\bancanameF}{}
+\providecommand{\bancadataF}{}
+\newcommand{\bancaMembroF}[2][]%
+    {\renewcommand{\bancanameF}{#2}%
+     \renewcommand{\bancadataF}{#1}}
+
+\providecommand{\bancanameG}{}
+\providecommand{\bancadataG}{}
+\newcommand{\bancaMembroG}[2][]%
+    {\renewcommand{\bancanameG}{#2}%
+     \renewcommand{\bancadataG}{#1}}
+
+%---------------------------------------------------------------------------
+% Texto da folha de rosto
+\newcommand{\IFSCcomentariodata}{\IFSCdocumentodata\ submetid\IFSCdocumentogenerodata\ 
+ \aoa{\IFSCcursogenerodata}\ \IFSCcursodata\ para a obtenção do Grau de \graudata.}
+
+%\renewcommand{\comentarioformat}{\small}
+
+%---------------------------------------------------------------------------
+% Texto da folha de aprovacao
+\newcommand{\textoAprovacaodata}{\esteEsta{\IFSCdocumentogenerodata} \IFSCdocumentodata\ 
+    foi julgad\IFSCdocumentogenerodata\ aprovad\IFSCdocumentogenerodata\ para a 
+    obten\c{c}\~ao do T\'itulo de ``\graudata'',  e aprovad\IFSCdocumentogenerodata\ 
+    em sua forma final \peloPela{\IFSCcursogenerodata} \IFSCcursodata.} 
+
+% Resumo e abstract
+\providecommand{\textoResumodata}{}
+\newcommand{\textoResumo}[1]{\renewcommand{\textoResumodata}{#1}}
+
+\providecommand{\textAbstractdata}{}
+\newcommand{\textAbstract}[1]{\renewcommand{\textAbstractdata}{#1}}
+
+% Palavras-chave e keywords
+\providecommand{\palavrasChavedata}{}
+\newcommand{\palavrasChave}[1]{\renewcommand{\palavrasChavedata}{#1}}
+
+\providecommand{\keywordsdata}{}
+\newcommand{\keywords}[1]{\renewcommand{\keywordsdata}{#1}}
+
+% Dedicatoria
+\providecommand{\dedicatoriadata}{}
+\renewcommand{\dedicatoria}[1]{\renewcommand{\dedicatoriadata}{#1}}
+\newcommand{\dedicatoriaformat}{}
+
+% Agradecimentos
+\providecommand{\agradecimentodata}{}
+\newcommand{\agradecimento}[1]{\renewcommand{\agradecimentodata}{#1}}
+\newcommand{\agradecimentoname}{Agradecimentos}
+
+% Epigrafe
+\providecommand{\epigrafedata}{}
+\providecommand{\epigrafeautordata}{}
+\renewcommand{\epigrafe}[2]{\renewcommand{\epigrafedata}{#1}\renewcommand{\epigrafeautordata}{#2}}
+\newcommand{\epigrafeformat}{}%{\itshape}
+\newcommand{\epigrafeautorformat}{\hfill}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                         
+% Comandos e formatos customizáveis 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                         
+
+%---------------------------------------------------------------------------
+% Funções de ajustes aos textos de acordo com o genero
+\newcommand{\esteEsta}[1]{\ifthenelse{\equal{#1}{a}}{Esta}{Este}}
+\newcommand{\aoa}[1]{{\ifthenelse{\equal{#1}{a}}{\`a}{ao}}}
+\newcommand{\peloPela}[1]{\ifthenelse{\equal{#1}{o}}{pelo}{pela}}
+
+%---------------------------------------------------------------------------
+% Determina o genero do documento pré-definido
+\newcommand{\detgenerodoc}[1] % Me dei por vencido - Verificar no futuro sobre expansao de commands
+    {\ifthenelse{\equal{#1}{Relatório}\or\equal{#1}{Trabalho}\or
+                 \equal{#1}{Trabalho de Conclusão de Curso}\or
+		 \equal{#1}{Relatório de Pós-Doutorado}}
+	{\renewcommand{\IFSCdocumentogenerodata}{o}}
+    }
+
+%-------------------------------------------------------------------------------
+% Para listagens de algoritmos e de código, recomenda-se consultar os
+% pacotes algorithms e lstlistings, que são usados para definir esses
+% dois tipos de elementos de texto e possuem os comandos
+% \listofalgorithms e \lstlistoflistings, respectivamente.
+%-------------------------------------------------------------------------------

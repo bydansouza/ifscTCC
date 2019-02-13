@@ -1,0 +1,368 @@
+\documentclass{ifscTCC} % Definicao do documentclass ifscTCC	
+
+% ----------------------------------------------------------
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ----------------------------------------------------------
+% Identificadores do trabalho - Usados para preencher os elementos pré-textuais
+\instituicao[o]{Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina} % Opcional
+\departamento[o]{Departamento Acadêmico de Eletrônica}
+\curso[o]{Curso Superior de Engenharia Eletrônica}
+\documento[o]{TCC} % [o] para dissertação [a] para tese
+\preambulo{Trabalho de conclusão de curso submetido ao Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina como parte dos requisitos para obtenção do título de engenheiro eletrônico}
+\titulo{myTCC}
+\subtitulo{Subtítulo (se houver)} % Opcional
+\autor{Daniel Henrique Camargo de Souza}
+\grau{Bacharel}
+\local{Florianópolis} % Opcional (Florianópolis é o padrão)
+\data{2019}
+\orientador[Orientador:\\]{Prof. Dr. Luis Carlos Martinhago Schlichting}
+\coorientador[Coorientador\\Universidade ...]{Prof. Dr.}
+\coordenador[Coordenador\\Universidade ...]{Prof. Dr. }
+
+%---------------------------------------------------------------------
+% Início do documento
+%---------------------------------------------------------------------
+\begin{document}
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% CAPA SEGUINDO NORMA TCC IFSC
+% ----------------------------------------------------------
+%\imprimircapa  %Comando Padrão do Abntex2 (Formato Diferente do IFSC)
+\begin{capa}%
+    \begin{SingleSpacing}
+        \center\ABNTEXchapterfont\bfseries\ INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DE\\SANTA CATARINA - CÂMPUS FLORIANÓPOLIS\\DEPARTAMENTO ACADÊMICO DE ELETRÔNICA\\CURSO SUPERIOR DE ENGENHARIA ELETRÔNICA
+        
+        \vspace*{3.0cm}     % três espaços simples - conforme norma para TCC do IFSC
+        
+        \ABNTEXchapterfont\bfseries\MakeUppercase\imprimirautor
+
+        \begin{vplace}[0.5]
+            \begin{center}
+                \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+            \end{center}
+        \end{vplace}
+        
+        \begin{center}
+            \ABNTEXchapterfont\bfseries\ FLORIANÓPOLIS, 2019
+        \end{center}
+    \end{SingleSpacing}
+\end{capa}
+
+% ----------------------------------------------------------
+% FOLHA DE ROSTO SEGUINDO NORMA TCC IFSC
+% ----------------------------------------------------------
+% Comando Padrão do Abntex2 % (o * indica que haverá a ficha bibliográfica) (Formato Diferente do IFSC)
+% \imprimirfolhaderosto*
+% \imprimirfolhaderosto
+\begin{capa}%
+    \begin{SingleSpacing}
+        \center
+        \ABNTEXchapterfont\bfseries\ INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DE\\SANTA CATARINA - CÂMPUS FLORIANÓPOLIS\\DEPARTAMENTO ACADÊMICO DE ELETRÔNICA\\CURSO SUPERIOR DE ENGENHARIA ELETRÔNICA
+        
+        \vspace*{3.0cm}     % três espaços simples - conforme norma para TCC do IFSC
+        
+        \ABNTEXchapterfont\bfseries\MakeUppercase\imprimirautor
+        
+        %\begin{vplace}[0.5]
+        \vspace*{\fill} 
+            \begin{center}
+                \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+            \end{center}
+        \vspace*{\fill} 
+        %\end{vplace}
+        
+        \hspace{.45\textwidth}
+        \begin{minipage}{.5\textwidth}
+            \begin{SingleSpacing}
+                \normalfont\imprimirpreambulo
+                \vspace*{1.0cm}
+                
+                \imprimirorientadorRotulo~\imprimirorientador\par
+                \imprimircoorientadorRotulo~\imprimircoorientador
+            \end{SingleSpacing}
+        \end{minipage}%
+        \vspace*{\fill} 
+        
+        \begin{center}
+            \ABNTEXchapterfont\bfseries\ FLORIANÓPOLIS, 2019
+        \end{center}
+    \end{SingleSpacing}
+\end{capa}
+
+% ----------------------------------------------------------
+% FICHA DE IDENTIFICAÇÃO (CATALOGRÁFICA) APROVAÇÃO SEGUINDO NORMA TCC IFSC
+% ----------------------------------------------------------
+\includepdf{./pdf/fichacatalografica_final.pdf}     %Para Inclusão de modelo fornecido pela Biblioteca
+
+%\begin{fichacatalografica}
+%    \sffamily
+%    \vspace*{15cm}    % Posição vertical
+%    \hrule    % Linha horizontal
+%    
+%    \begin{center}
+%        % Minipage Centralizado
+%        \begin{minipage}[c]{12.5cm} % Largura
+%            \imprimirautor
+%            \hspace{0.5cm} \imprimirtitulo / \imprimirautor. --
+%            \imprimirlocal, \imprimirdata-
+%            \hspace{0.5cm} \pageref{LastPage} p. : il.(alguma color.); 30 cm.%\\
+%            \hspace{0.5cm} \imprimirorientadorRotulo \imprimirorientador\\
+%            \hspace{0.5cm}
+%            \parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+%            \imprimirdata.}\\
+%            \hspace{0.5cm}
+%            1. Palavra-chave1.
+%            2. Palavra-chave2.
+%            I. Orientador.
+%            II. Universidade xxx.
+%            III. Faculdade de xxx.
+%            IV. Título\\
+%            \hspace{8.75cm} CDU 02:141:005.7\\
+%        \end{minipage}
+%    \end{center}
+%    \hrule
+%\end{fichacatalografica}
+%\newpage
+
+% ----------------------------------------------------------
+% ERRATA SEGUINDO NORMA TCC IFSC (OPCIONAL)
+% ----------------------------------------------------------
+%\begin{errata}
+%    FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina
+%    Veterinária e Zootecnia, Universidade de São Paulo, São Paulo, 2011.
+%    \begin{table}[htb]
+%        \center
+%        \footnotesize
+%        \begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
+%            \hline
+%            \textbf{Folha} & \textbf{Linha} & \textbf{Onde se lê} &
+%            \textbf{Leia-se}\\
+%            \hline
+%            1 & 10 & auto-conclavo & autoconclavo\\
+%            \hline
+%        \end{tabular}
+%    \end{table}
+%\end{errata}
+%
+% ----------------------------------------------------------
+% FOLHA APROVAÇÃO SEGUINDO NORMA TCC IFSC
+% ----------------------------------------------------------
+%\includepdf{folhadeaprovacao_final.pdf}     %Após as assinaturas é incluido digitalizado
+
+\begin{folhadeaprovacao}
+    \begin{center}
+        \ABNTEXchapterfont\bfseries\Large\MakeUppercase\imprimirtitulo
+            
+        \vspace*{2.0cm}
+            
+        \ABNTEXchapterfont\normalsize\MakeUppercase\imprimirautor
+            
+        \vspace*{2.0cm}
+    \end{center}
+    
+    
+    \noindent Este Trabalho foi julgado adequado para obtenção do Título de Engenheiro Eletrônico em XXX e aprovado na sua forma final pela banca examinadora do Curso de Engenharia Eletrônica do instituto Federal de Educação Ciência, e Tecnologia de Santa Catarina.
+        
+    \vspace*{1.0cm}
+    \begin{center}    
+        \imprimirlocal, 04 de Julho de 2019.
+    \end{center}
+    
+    \noindent Banca Examinadora:
+    
+    \assinatura{\textbf{\imprimirorientador} \\ Orientador}
+    \assinatura{\textbf{Professor} \\ Convidado 1}
+    \assinatura{\textbf{Professor} \\ Convidado 2}
+    \assinatura{\textbf{Professor} \\ Convidado 3}
+    \assinatura{\textbf{Professor} \\ Convidado 4}
+
+\end{folhadeaprovacao}
+
+% ----------------------------------------------------------
+% DEDICATORIA SEGUINDO NORMA TCC IFSC
+% ----------------------------------------------------------
+\begin{dedicatoria}
+
+    \vspace*{\fill}
+        Para Voçê!
+    \vspace*{\fill}
+    
+\end{dedicatoria}
+
+
+% ----------------------------------------------------------
+% AGRADECIMENTOS SEGUINDO NORMA TCC IFSC
+% ----------------------------------------------------------
+\begin{agradecimentos}
+    \begin{itemize}
+        \item ao \LaTeX que coloca o Word no chinelo 
+    \end{itemize}
+
+\end{agradecimentos}
+
+
+% ----------------------------------------------------------
+% EPIGRAFE SEGUINDO NORMA TCC IFSC
+% ----------------------------------------------------------
+\begin{epigrafe}
+    \noindent\textit{‘‘Não vos amoldeis às estruturas deste mundo, \\
+    mas transformai-vos pela renovação da mente, \\
+    a fim de distinguir qual éa vontade de Deus: \\
+    o que é bom, o que Lhe éagradável, o que éperfeito.\\
+    (Bíblia Sagrada, Romanos 12, 2)}
+\end{epigrafe}
+
+% ----------------------------------------------------------
+% RESUMO SEGUINDO NORMA TCC IFSC
+% ----------------------------------------------------------
+% resumo na língua vernácula (obrigatório)
+\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+
+\begin{resumo}
+ 
+Resumo
+
+\noindent
+\textbf{Palavras-chaves}: Compatibilidade. 
+
+\end{resumo}
+
+\begin{resumo}[ABSTRACT]
+\begin{otherlanguage*}{english}
+ 
+Abstract 
+
+\noindent
+\textbf{Key-Words}: Compatibility. 
+\end{otherlanguage*}
+\end{resumo}
+
+% ----------------------------------------------------------
+% ABSTRACT SEGUINDO NORMA TCC IFSC
+% ----------------------------------------------------------
+
+
+% ----------------------------------------------------------
+% LISTA DE ILUSTRAÇÕES
+% ----------------------------------------------------------
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+% ----------------------------------------------------------
+% LISTA DE TABELAS
+% ----------------------------------------------------------
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+
+% ----------------------------------------------------------
+% LISTA DE ABREVIATURAS E SIGLAS
+% ----------------------------------------------------------
+\begin{siglas}
+   \item[VDC] \textit{Voltage Direct Current} - Tensão Contínua
+   \item[VAC] \textit{Voltage Alternating Current} - Tensão Alternada
+   \item[CI] Circuito Integrado
+   \item[CC] Corrente Contínua
+   \item[CA] Corrente Alternada
+   \item[IFSC] Instituto Federal de Educação Ciência e Tecnologia de Santa Catarina
+   \item[PCI] Placa de Circuito Impresso
+   \item[ABNT] Associação Brasileira de Normas Técnicas
+   \item[abnTex] Normas para \LaTeX
+   \end{siglas}
+
+% ----------------------------------------------------------
+% LISTA DE SIMBOLOS
+% ----------------------------------------------------------
+\begin{simbolos}
+   \item[$cm$] Centímetros - Unidade de comprimento
+   \item[$cm^{2}$] Centímetros Quadrados - Unidade de área
+   \item[$VA$] Volt-Ampere - Unidade de potência elétrica
+   \item[$W$] Watt's - Unidade de potência elétrica
+   \item[$V$] Volts - Unidade de potencial elétrico
+ 	\item[$A$] Ampere - Unidade de Corrente Elétrica
+ 	\item[$\Omega$] Ohms - Unidade de resistência elétrica
+ 	\item[$H$] Henry - Unidade de indutância elétrica
+ 	\item[$\,^{\circ}\mathrm{C}$] Grau Celcius - Unidade de temperatura
+\end{simbolos}
+
+% ----------------------------------------------------------
+% SUMÁRIO
+% ----------------------------------------------------------
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents
+\cleardoublepage
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% Cores para os códigos do MatLab
+\definecolor{mygreen}{RGB}{28,172,0}    % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}  % o lilas para códigos do MatLab
+
+\lstset{language=Matlab,            %Que tipo de linguaguem os códigos serão
+    %basicstyle=\color{red}, 		%normal fontsize
+    %basicstyle=\ttfamily\footnotesize 	%fontsize small
+    basicstyle=\ttfamily\scriptsize,		%fontsize verysmall
+    %breaklines=false,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=5pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},    
+}
+
+%\part{Introdução}
+ \include{tex/introducao}
+ \include{tex/desenvolvimento}
+ \include{tex/conclusao}
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS 
+% ----------------------------------------------------------
+\postextual
+
+% ----------------------------------------------------------
+% REFERÊNCIAS BIBLIOGRÁFICAS
+% ----------------------------------------------------------
+\bibliography{bibliografia}
+
+% ----------------------------------------------------------
+% GLOSSARIO
+% ----------------------------------------------------------
+% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+%\glossary
+
+% ----------------------------------------------------------
+% APÊNDICES
+% ----------------------------------------------------------
+ \begin{apendicesenv}
+ \include{tex/apendices}
+ \end{apendicesenv}
+
+
+% ----------------------------------------------------------
+% ANEXOS
+% ----------------------------------------------------------
+\begin{anexosenv}
+\include{tex/anexos}
+\end{anexosenv}
+
+%-----------------------------------------------------------
+% INDICE REMISSIVO
+%-----------------------------------------------------------
+% \phantompart
+% \printindex
+
+\end{document}
