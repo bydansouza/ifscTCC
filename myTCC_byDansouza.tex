@@ -9,15 +9,15 @@
 \curso[o]{Curso Superior de Engenharia Eletrônica}
 \documento[o]{TCC} % [o] para dissertação [a] para tese
 \preambulo{Trabalho de conclusão de curso submetido ao Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina como parte dos requisitos para obtenção do título de engenheiro eletrônico}
-\titulo{myTCC}
-\subtitulo{Subtítulo (se houver)} % Opcional
+\titulo{Estudo e caracterização de pontas de prova para obtenção de medidas de campo magnético próximo em análises de compatibilidade eletromagnetica}
+%\subtitulo{Subtítulo (se houver)} % Opcional
 \autor{Daniel Henrique Camargo de Souza}
 \grau{Bacharel}
 \local{Florianópolis} % Opcional (Florianópolis é o padrão)
 \data{2019}
-\orientador[Orientador:\\]{Prof. Dr. Luis Carlos Martinhago Schlichting}
-\coorientador[Coorientador\\Universidade ...]{Prof. Dr.}
-\coordenador[Coordenador\\Universidade ...]{Prof. Dr. }
+%\orientador[Orientador:\\]{Prof. Dr. Luis Carlos Martinhago Schlichting}
+%\coorientador[Coorientador\\Universidade ...]{Prof. Dr.}
+%\coordenador[Coordenador\\Universidade ...]{Prof. Dr. }
 
 %---------------------------------------------------------------------
 % Início do documento
@@ -25,6 +25,7 @@
 \begin{document}
 % Retira espaço extra obsoleto entre as frases.
 \frenchspacing 
+
 
 % ----------------------------------------------------------
 % CAPA SEGUINDO NORMA TCC IFSC
@@ -40,7 +41,7 @@
 
         \begin{vplace}[0.5]
             \begin{center}
-                \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+                \ABNTEXchapterfont\SingleSpacing\bfseries\Large\MakeUppercase\imprimirtitulo
             \end{center}
         \end{vplace}
         
@@ -68,7 +69,7 @@
         %\begin{vplace}[0.5]
         \vspace*{\fill} 
             \begin{center}
-                \ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+                \ABNTEXchapterfont\SingleSpacing\bfseries\Large\MakeUppercase\imprimirtitulo
             \end{center}
         \vspace*{\fill} 
         %\end{vplace}
@@ -79,8 +80,7 @@
                 \normalfont\imprimirpreambulo
                 \vspace*{1.0cm}
                 
-                \imprimirorientadorRotulo~\imprimirorientador\par
-                \imprimircoorientadorRotulo~\imprimircoorientador
+                Orientador:\\Prof. Dr. Luis Carlos Martinhago Schlichting
             \end{SingleSpacing}
         \end{minipage}%
         \vspace*{\fill} 
@@ -95,6 +95,7 @@
 % FICHA DE IDENTIFICAÇÃO (CATALOGRÁFICA) APROVAÇÃO SEGUINDO NORMA TCC IFSC
 % ----------------------------------------------------------
 \includepdf{./pdf/fichacatalografica_final.pdf}     %Para Inclusão de modelo fornecido pela Biblioteca
+\cleardoublepage
 
 %\begin{fichacatalografica}
 %    \sffamily
@@ -124,7 +125,6 @@
 %    \end{center}
 %    \hrule
 %\end{fichacatalografica}
-%\newpage
 
 % ----------------------------------------------------------
 % ERRATA SEGUINDO NORMA TCC IFSC (OPCIONAL)
@@ -153,11 +153,13 @@
 
 \begin{folhadeaprovacao}
     \begin{center}
-        \ABNTEXchapterfont\bfseries\Large\MakeUppercase\imprimirtitulo
+        \begin{center}
+            \ABNTEXchapterfont\SingleSpacing\bfseries\Large\MakeUppercase\imprimirtitulo
+        \end{center}
             
         \vspace*{2.0cm}
             
-        \ABNTEXchapterfont\normalsize\MakeUppercase\imprimirautor
+        \ABNTEXchapterfont\normalsize\bfseries\MakeUppercase\imprimirautor
             
         \vspace*{2.0cm}
     \end{center}
@@ -172,13 +174,14 @@
     
     \noindent Banca Examinadora:
     
-    \assinatura{\textbf{\imprimirorientador} \\ Orientador}
-    \assinatura{\textbf{Professor} \\ Convidado 1}
-    \assinatura{\textbf{Professor} \\ Convidado 2}
-    \assinatura{\textbf{Professor} \\ Convidado 3}
-    \assinatura{\textbf{Professor} \\ Convidado 4}
+    \assinatura{Luis Carlos Martinhago Schlichting, Dr.}
+    \assinatura{Convidado 1, Dr.}
+    \assinatura{Convidado 2, Dr.}
+    \assinatura{Convidado 3, Dr.}
+    \assinatura{Convidado 4, Dr.}
 
 \end{folhadeaprovacao}
+\cleardoublepage
 
 % ----------------------------------------------------------
 % DEDICATORIA SEGUINDO NORMA TCC IFSC
@@ -206,13 +209,15 @@
 % ----------------------------------------------------------
 % EPIGRAFE SEGUINDO NORMA TCC IFSC
 % ----------------------------------------------------------
-\begin{epigrafe}
-    \noindent\textit{‘‘Não vos amoldeis às estruturas deste mundo, \\
-    mas transformai-vos pela renovação da mente, \\
-    a fim de distinguir qual éa vontade de Deus: \\
-    o que é bom, o que Lhe éagradável, o que éperfeito.\\
-    (Bíblia Sagrada, Romanos 12, 2)}
-\end{epigrafe}
+%\begin{epigrafe}
+%	
+%    \noindent\textit{‘‘Não vos amoldeis às estruturas deste mundo, \\
+%    mas transformai-vos pela renovação da mente, \\
+%    a fim de distinguir qual éa vontade de Deus: \\
+%    o que é bom, o que Lhe éagradável, o que éperfeito.\\
+%    (Bíblia Sagrada, Romanos 12, 2)}
+%    
+%\end{epigrafe}
 
 % ----------------------------------------------------------
 % RESUMO SEGUINDO NORMA TCC IFSC
@@ -221,28 +226,26 @@
 \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 
 \begin{resumo}
- 
-Resumo
+
+
 
 \noindent
 \textbf{Palavras-chaves}: Compatibilidade. 
 
 \end{resumo}
 
+% ----------------------------------------------------------
+% ABSTRACT SEGUINDO NORMA TCC IFSC
+% ----------------------------------------------------------
 \begin{resumo}[ABSTRACT]
 \begin{otherlanguage*}{english}
- 
-Abstract 
+
+
 
 \noindent
 \textbf{Key-Words}: Compatibility. 
 \end{otherlanguage*}
 \end{resumo}
-
-% ----------------------------------------------------------
-% ABSTRACT SEGUINDO NORMA TCC IFSC
-% ----------------------------------------------------------
-
 
 % ----------------------------------------------------------
 % LISTA DE ILUSTRAÇÕES
@@ -323,10 +326,13 @@ Abstract
     %emph=[2]{word1,word2}, emphstyle=[2]{style},    
 }
 
+% Elimina o Cabeçalho
+\pagestyle{parpage}
+
 %\part{Introdução}
- \include{tex/introducao}
- \include{tex/desenvolvimento}
- \include{tex/conclusao}
+ \include{./tex/introducao}
+ \include{./tex/desenvolvimento}
+ \include{./tex/conclusao}
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS 
@@ -336,7 +342,7 @@ Abstract
 % ----------------------------------------------------------
 % REFERÊNCIAS BIBLIOGRÁFICAS
 % ----------------------------------------------------------
-\bibliography{bibliografia}
+\bibliography{bib_eng_eletronic}
 
 % ----------------------------------------------------------
 % GLOSSARIO
@@ -347,17 +353,19 @@ Abstract
 % ----------------------------------------------------------
 % APÊNDICES
 % ----------------------------------------------------------
- \begin{apendicesenv}
- \include{tex/apendices}
- \end{apendicesenv}
+ %\begin{apendicesenv}
+ \apendices
+ \include{./tex/apendices}
+ %\end{apendicesenv}
 
 
 % ----------------------------------------------------------
 % ANEXOS
 % ----------------------------------------------------------
-\begin{anexosenv}
-\include{tex/anexos}
-\end{anexosenv}
+%\begin{anexosenv}
+\anexos
+\include{./tex/anexos}
+%\end{anexosenv}
 
 %-----------------------------------------------------------
 % INDICE REMISSIVO

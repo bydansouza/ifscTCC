@@ -107,6 +107,13 @@
 
 \renewcommand{\ABNTEXsectionfont}{\sffamily}
 
+% Remover Cabeçalho nas paginas Pares
+\makepagestyle{parpage}
+\makeevenhead{parpage}{\ABNTEXfontereduzida\thepage}{}{}
+  
+% Espaço 1,5 após os capitulos
+\setlength{\afterchapskip}{\lineskip}
+
 % Espaçamentos entre linhas e parágrafos 
 \setlength{\parindent}{2.0cm}   % Identação do paragrafo conforme norma para TCC IFSC
 
