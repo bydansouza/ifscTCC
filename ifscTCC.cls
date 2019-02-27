@@ -69,7 +69,7 @@
 
 % Pacotes de citações
 \usepackage[brazilian,hyperpageref]{backref}	% Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}				% Citações padrão ABNT                                                 
+\usepackage[alf]{abntex2cite}				% Citações padrão ABNT
 
 \usepackage[brazil]{babel}	% coloca as coisas em portugues no sumário.
 \usepackage[normalem]{ulem}	% provê sublinhados para textos (\ul)
@@ -80,6 +80,9 @@
 
 % usado por abntex2-fichacatalografica.tex
 \usepackage{lastpage}
+
+% pacote para espaçamentos
+\usepackage{setspace}
 
 %---------------------------------------------------------------------------
 % Definicao da geometria da página - Conforme Norma para TCC IFSC
@@ -112,13 +115,13 @@
 \makeevenhead{parpage}{\ABNTEXfontereduzida\thepage}{}{}
   
 % Espaço 1,5 após os capitulos
-\setlength{\afterchapskip}{\lineskip}
+\setlength{\afterchapskip}{0.5cm} %\lineskip single space
 
 % Espaçamentos entre linhas e parágrafos 
 \setlength{\parindent}{2.0cm}   % Identação do paragrafo conforme norma para TCC IFSC
 
 % Controle do espaçamento entre um parágrafo e outro:
-\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+\setlength{\parskip}{0.1cm}  % tente também \onelineskip
 
 % Configurações do pacote backref
 % Usado sem a opção hyperpageref de backref
@@ -128,13 +131,13 @@
 % Define os textos da citação
 \renewcommand*{\backrefalt}[4]{
 	\ifcase #1 %
-		Nenhuma citação no texto.%
+		Nenhuma cita{\c c}\~ao no texto.%
 	\or
-		Citado na página #2.%
+		Citado na p\'agina #2.%
 	\else
-		Citado #1 vezes nas páginas #2.%
+		Citado #1 vezes nas p\'aginas #2.%
 	\fi}%
-	
+
 % Comandos criados pelo usuário
 \newcommand{\afazer}[1]{{\color{red}{#1}}} % Para destacar uma parte a ser trabalhada
 
@@ -145,7 +148,7 @@
 % informações do PDF
 \makeatletter
 \hypersetup{
-     	%pagebackref=true,
+    %pagebackref=true,
 	pdftitle={\@title}, 
 	pdfauthor={\@author},
    	pdfsubject={\imprimirpreambulo},
