@@ -69,7 +69,7 @@
 
 % Pacotes de citações
 \usepackage[brazilian,hyperpageref]{backref}	% Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}				% Citações padrão ABNT
+\usepackage[alf,ifscbib]{abntex2cite}				% Citações padrão ABNT
 
 \usepackage[brazil]{babel}	% coloca as coisas em portugues no sumário.
 \usepackage[normalem]{ulem}	% provê sublinhados para textos (\ul)
@@ -141,9 +141,12 @@
 % Comandos criados pelo usuário
 \newcommand{\afazer}[1]{{\color{red}{#1}}} % Para destacar uma parte a ser trabalhada
 
+% Fontes das figuras
+\renewcommand{\fonte}[1]{\legend{\hspace{-218pt}Fonte: {#1}}}
+
 % Configurações de aparência do PDF final
-% alterando o aspecto da cor azul
 \definecolor{blue}{RGB}{41,5,195}
+\definecolor{pretoifsc}{RGB}{0,0,0}
 
 % informações do PDF
 \makeatletter
@@ -155,10 +158,10 @@
 	%pdfcreator={LaTeX with abnTeX2},
 	%pdfkeywords={abnt}{latex}{abntex}{abntex2}{relatório técnico}, 
 	colorlinks=true,       		% false: boxed links; true: colored links
-    linkcolor=blue,		          	% color of internal links
-    citecolor=blue,        		% color of links to bibliography
-    filecolor=magenta,      		% color of file links
-	urlcolor=blue,
+    linkcolor=pretoifsc,		          	% color of internal links
+    citecolor=pretoifsc,        		% color of links to bibliography
+    filecolor=pretoifsc,      		% color of file links
+	urlcolor=pretoifsc,
 	bookmarksdepth=4
 }
 \makeatother

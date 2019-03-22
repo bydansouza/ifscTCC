@@ -264,13 +264,21 @@
 % LISTA DE ABREVIATURAS E SIGLAS
 % ----------------------------------------------------------
 \begin{siglas}
-   \item[VDC] \textit{Voltage Direct Current} - Tensão Contínua
-   \item[VAC] \textit{Voltage Alternating Current} - Tensão Alternada
+   \item[EMC] Compatibilidade Eletromagnética
+   \item[EMI] Interferência Eletromagnética
+   \item[PCI] Placa de Circuito Impresso
+   \item[ESD] \textit{Electrostatic Discharge} - Descarga Eletrostática
+   \item[EMP] \textit{Electromagnetic Pulse} - Pulso Eletromagnético
+   \item[FCC] \textit{Federal Communication Commission}
+   \item[CISPR] \textit{International Special Committee on Radio Interference}
+   \item[IEC] \textit{International Electrotechnical Commission}
+   \item[LISN] \textit{Line Impedance Stabilization Network}
    \item[CI] Circuito Integrado
    \item[CC] Corrente Contínua
    \item[CA] Corrente Alternada
    \item[IFSC] Instituto Federal de Educação Ciência e Tecnologia de Santa Catarina
-   \item[PCI] Placa de Circuito Impresso
+   \item[VDC] \textit{Voltage Direct Current} - Tensão Contínua
+   \item[VAC] \textit{Voltage Alternating Current} - Tensão Alternada
    \item[ABNT] Associação Brasileira de Normas Técnicas
    \item[abnTex] Normas para \LaTeX
    \end{siglas}
@@ -279,15 +287,17 @@
 % LISTA DE SIMBOLOS
 % ----------------------------------------------------------
 \begin{simbolos}
+   \item[$V$] Volts - Unidade de potencial elétrico
+   \item[$A$] Ampere - Unidade de Corrente Elétrica
+   \item[$\Omega$] Ohms - Unidade de resistência elétrica
+   \item[$F$] Faradays - Unidade de capacitância elétrica
+   \item[$H$] Henry - Unidade de indutância elétrica
+   \item[$W$] Watt's - Unidade de potência elétrica
+   \item[$Hz$] Hertz - Unidade de Frequência (Ciclos por Segundo)
+   \item[$VA$] Volt-Ampere - Unidade de potência elétrica
    \item[$cm$] Centímetros - Unidade de comprimento
    \item[$cm^{2}$] Centímetros Quadrados - Unidade de área
-   \item[$VA$] Volt-Ampere - Unidade de potência elétrica
-   \item[$W$] Watt's - Unidade de potência elétrica
-   \item[$V$] Volts - Unidade de potencial elétrico
- 	\item[$A$] Ampere - Unidade de Corrente Elétrica
- 	\item[$\Omega$] Ohms - Unidade de resistência elétrica
- 	\item[$H$] Henry - Unidade de indutância elétrica
- 	\item[$\,^{\circ}\mathrm{C}$] Grau Celcius - Unidade de temperatura
+   \item[$\,^{\circ}\mathrm{C}$] Grau Celcius - Unidade de temperatura
 \end{simbolos}
 
 % ----------------------------------------------------------
@@ -331,7 +341,6 @@
 %\part{Introdução}
  \include{./tex/introducao}
  \include{./tex/desenvolvimento}
- \include{./tex/conclusao}
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS 
@@ -352,11 +361,10 @@
 % ----------------------------------------------------------
 % APÊNDICES
 % ----------------------------------------------------------
- %\begin{apendicesenv}
- \apendices
- \include{./tex/apendices}
- %\end{apendicesenv}
-
+%\begin{apendicesenv}
+\apendices
+\include{./tex/apendices}
+%\end{apendicesenv}
 
 % ----------------------------------------------------------
 % ANEXOS
