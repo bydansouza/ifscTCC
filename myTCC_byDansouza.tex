@@ -150,6 +150,7 @@
 % ----------------------------------------------------------
 %\includepdf{folhadeaprovacao_final.pdf}     %Após as assinaturas é incluido digitalizado
 
+\setcounter{page}{4}
 \begin{folhadeaprovacao}
     \begin{center}
         \begin{center}
@@ -164,11 +165,11 @@
     \end{center}
     
     
-    \noindent\OnehalfSpacing Este Trabalho foi julgado adequado para obtenção do Título de Engenheiro Eletrônico em XXX e aprovado na sua forma final pela banca examinadora do Curso de Engenharia Eletrônica do instituto Federal de Educação Ciência, e Tecnologia de Santa Catarina.
+    \noindent\OnehalfSpacing Este Trabalho foi julgado adequado para obtenção do Título de Engenheiro Eletrônico em Julho de 2019 e aprovado na sua forma final pela banca examinadora do Curso de Engenharia Eletrônica do instituto Federal de Educação Ciência, e Tecnologia de Santa Catarina.
         
     \vspace*{1.0cm}
     \begin{center}    
-        \imprimirlocal, 04 de Julho de 2019.
+        \imprimirlocal, 08 de Julho de 2019.
     \end{center}
     
     \noindent Banca Examinadora:
@@ -176,8 +177,6 @@
     \assinatura{Luis Carlos Martinhago Schlichting, Dr.}
     \assinatura{Convidado 1, Dr.}
     \assinatura{Convidado 2, Dr.}
-    \assinatura{Convidado 3, Dr.}
-    \assinatura{Convidado 4, Dr.}
 
 \end{folhadeaprovacao}
 \cleardoublepage
@@ -270,9 +269,13 @@
    \item[ESD] \textit{Electrostatic Discharge} - Descarga Eletrostática
    \item[EMP] \textit{Electromagnetic Pulse} - Pulso Eletromagnético
    \item[FCC] \textit{Federal Communication Commission}
-   \item[CISPR] \textit{International Special Committee on Radio Interference}
+   \item[CISPR] \textit{Comité International Special des Perturbations Radioélectriques}
    \item[IEC] \textit{International Electrotechnical Commission}
    \item[LISN] \textit{Line Impedance Stabilization Network}
+   \item[NFP] \textit{Near-Field Probe} - Sonda de Campo Próximo
+   \item[DUT] \textit{Device Under Test} - Dispositivo Sob Teste
+   \item[OATS] \textit{Open-Area Test Site} - Local de Teste de Área Aberta
+   \item[SAC] \textit{Semi Anechoic Chamber} - Câmara Semi Anecoíca
    \item[CI] Circuito Integrado
    \item[CC] Corrente Contínua
    \item[CA] Corrente Alternada
@@ -295,8 +298,10 @@
    \item[$W$] Watt's - Unidade de potência elétrica
    \item[$Hz$] Hertz - Unidade de Frequência (Ciclos por Segundo)
    \item[$VA$] Volt-Ampere - Unidade de potência elétrica
-   \item[$cm$] Centímetros - Unidade de comprimento
-   \item[$cm^{2}$] Centímetros Quadrados - Unidade de área
+   \item[$dB\mu V$] Decibel microVolt - Decibéis relativos a um microVolt
+   \item[$dB\mu V/m$] Decibel microVolt por metro - Decibéis relativos a um microVolt por metro
+   \item[$mm$] Milimetros - Unidade de comprimento (1 metro divido por Mil)
+   \item[$mm^{2}$] Milimetros Quadrados - Unidade de área
    \item[$\,^{\circ}\mathrm{C}$] Grau Celcius - Unidade de temperatura
 \end{simbolos}
 
@@ -339,8 +344,9 @@
 \pagestyle{parpage}
 
 %\part{Introdução}
- \include{./tex/introducao}
- \include{./tex/desenvolvimento}
+\include{./tex/introducao}
+\include{./tex/desenvolvimento}
+\include{./tex/conclusao}
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS 
@@ -350,7 +356,7 @@
 % ----------------------------------------------------------
 % REFERÊNCIAS BIBLIOGRÁFICAS
 % ----------------------------------------------------------
-\bibliography{bibliografia}
+\bibliography{./bib/bibTCC}
 
 % ----------------------------------------------------------
 % GLOSSARIO
@@ -369,10 +375,10 @@
 % ----------------------------------------------------------
 % ANEXOS
 % ----------------------------------------------------------
-%\begin{anexosenv}
-\anexos
+\begin{anexosenv}[ANEXOS]
+%\anexos
 \include{./tex/anexos}
-%\end{anexosenv}
+\end{anexosenv}
 
 %-----------------------------------------------------------
 % INDICE REMISSIVO

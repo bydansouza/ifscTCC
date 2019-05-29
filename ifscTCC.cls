@@ -29,7 +29,7 @@
 	% -- opções da classe memoir --
 	12pt,				% tamanho da fonte - Norma para TCC IFSC
 	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	twoside,			% para impressão em verso e anverso. Oposto a oneside
+	oneside,			% Impressão em um Lado
 	a4paper,			% tamanho do papel. 
 	% -- opções da classe abntex2 --
 	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
@@ -84,6 +84,9 @@
 % pacote para espaçamentos
 \usepackage{setspace}
 
+% pacote para simbolos REGISTERED e ESPECIAL
+\usepackage{textcomp}
+
 %---------------------------------------------------------------------------
 % Definicao da geometria da página - Conforme Norma para TCC IFSC
 \RequirePackage[
@@ -113,6 +116,7 @@
 % Remover Cabeçalho nas paginas Pares
 \makepagestyle{parpage}
 \makeevenhead{parpage}{\ABNTEXfontereduzida\thepage}{}{}
+\makeoddhead{parpage}{}{}{\ABNTEXfontereduzida\thepage}
   
 % Espaço 1,5 após os capitulos
 \setlength{\afterchapskip}{0.5cm} %\lineskip single space
