@@ -9,9 +9,12 @@
 \curso[o]{Curso Superior de Engenharia Eletrônica}
 \documento[o]{TCC} % [o] para dissertação [a] para tese
 \preambulo{Trabalho de conclusão de curso submetido ao Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina como parte dos requisitos para obtenção do título de engenheiro eletrônico}
-\titulo{Estudo e caracterização de pontas de prova para obtenção de medidas de campo magnético próximo em análises de compatibilidade eletromagnetica}
+
+\titulo{
+Título...
+}
 %\subtitulo{Subtítulo (se houver)} % Opcional
-\autor{Daniel Henrique Camargo de Souza}
+\autor{Lucas Seara Manoel}
 \grau{Bacharel}
 \local{Florianópolis} % Opcional (Florianópolis é o padrão)
 \data{2019}
@@ -79,7 +82,8 @@
                 \normalfont\imprimirpreambulo
                 \vspace*{1.0cm}
                 
-                Orientador:\\Prof. Dr. Luis Carlos Martinhago Schlichting
+                Orientador:\\Prof. Dr. Fernando Santana Pacheco
+                Coorientador:\\Prof. Dr. Renan Augusto Starke
             \end{SingleSpacing}
         \end{minipage}%
         \vspace*{\fill} 
@@ -93,7 +97,7 @@
 % ----------------------------------------------------------
 % FICHA DE IDENTIFICAÇÃO (CATALOGRÁFICA) APROVAÇÃO SEGUINDO NORMA TCC IFSC
 % ----------------------------------------------------------
-\includepdf{./pdf/fichacatalografica_final.pdf}     %Para Inclusão de modelo fornecido pela Biblioteca
+% \includepdf{./pdf/fichacatalografica_final.pdf}     %Para Inclusão de modelo fornecido pela Biblioteca
 \cleardoublepage
 
 %\begin{fichacatalografica}
@@ -174,8 +178,8 @@
     
     \noindent Banca Examinadora:
     
-    \assinatura{Luis Carlos Martinhago Schlichting, Dr.}
-    \assinatura{Convidado 1, Dr.}
+    \assinatura{Fernando Santana Pacheco, Dr.}
+    \assinatura{Renan Augusto Starke, Dr.}
     \assinatura{Convidado 2, Dr.}
 
 \end{folhadeaprovacao}
@@ -228,7 +232,7 @@
 
 
 \noindent
-\textbf{Palavras-chaves}: Compatibilidade. 
+\textbf{Palavras-chaves}: Visão Computacional Embarcada. 
 
 \end{resumo}
 
@@ -262,48 +266,48 @@
 % ----------------------------------------------------------
 % LISTA DE ABREVIATURAS E SIGLAS
 % ----------------------------------------------------------
-\begin{siglas}
-   \item[EMC] Compatibilidade Eletromagnética
-   \item[EMI] Interferência Eletromagnética
-   \item[PCI] Placa de Circuito Impresso
-   \item[ESD] \textit{Electrostatic Discharge} - Descarga Eletrostática
-   \item[EMP] \textit{Electromagnetic Pulse} - Pulso Eletromagnético
-   \item[FCC] \textit{Federal Communication Commission}
-   \item[CISPR] \textit{Comité International Special des Perturbations Radioélectriques}
-   \item[IEC] \textit{International Electrotechnical Commission}
-   \item[LISN] \textit{Line Impedance Stabilization Network}
-   \item[NFP] \textit{Near-Field Probe} - Sonda de Campo Próximo
-   \item[DUT] \textit{Device Under Test} - Dispositivo Sob Teste
-   \item[OATS] \textit{Open-Area Test Site} - Local de Teste de Área Aberta
-   \item[SAC] \textit{Semi Anechoic Chamber} - Câmara Semi Anecoíca
-   \item[CI] Circuito Integrado
-   \item[CC] Corrente Contínua
-   \item[CA] Corrente Alternada
-   \item[IFSC] Instituto Federal de Educação Ciência e Tecnologia de Santa Catarina
-   \item[VDC] \textit{Voltage Direct Current} - Tensão Contínua
-   \item[VAC] \textit{Voltage Alternating Current} - Tensão Alternada
-   \item[ABNT] Associação Brasileira de Normas Técnicas
-   \item[abnTex] Normas para \LaTeX
-   \end{siglas}
+% \begin{siglas}
+%   \item[EMC] Compatibilidade Eletromagnética
+%   \item[EMI] Interferência Eletromagnética
+%   \item[PCI] Placa de Circuito Impresso
+%   \item[ESD] \textit{Electrostatic Discharge} - Descarga Eletrostática
+%   \item[EMP] \textit{Electromagnetic Pulse} - Pulso Eletromagnético
+%   \item[FCC] \textit{Federal Communication Commission}
+%   \item[CISPR] \textit{Comité International Special des Perturbations Radioélectriques}
+%   \item[IEC] \textit{International Electrotechnical Commission}
+%   \item[LISN] \textit{Line Impedance Stabilization Network}
+%   \item[NFP] \textit{Near-Field Probe} - Sonda de Campo Próximo
+%   \item[DUT] \textit{Device Under Test} - Dispositivo Sob Teste
+%   \item[OATS] \textit{Open-Area Test Site} - Local de Teste de Área Aberta
+%   \item[SAC] \textit{Semi Anechoic Chamber} - Câmara Semi Anecoíca
+%   \item[CI] Circuito Integrado
+%   \item[CC] Corrente Contínua
+%   \item[CA] Corrente Alternada
+%   \item[IFSC] Instituto Federal de Educação Ciência e Tecnologia de Santa Catarina
+%   \item[VDC] \textit{Voltage Direct Current} - Tensão Contínua
+%   \item[VAC] \textit{Voltage Alternating Current} - Tensão Alternada
+%   \item[ABNT] Associação Brasileira de Normas Técnicas
+%   \item[abnTex] Normas para \LaTeX
+% \end{siglas}
 
 % ----------------------------------------------------------
 % LISTA DE SIMBOLOS
 % ----------------------------------------------------------
-\begin{simbolos}
-   \item[$V$] Volts - Unidade de potencial elétrico
-   \item[$A$] Ampere - Unidade de Corrente Elétrica
-   \item[$\Omega$] Ohms - Unidade de resistência elétrica
-   \item[$F$] Faradays - Unidade de capacitância elétrica
-   \item[$H$] Henry - Unidade de indutância elétrica
-   \item[$W$] Watt's - Unidade de potência elétrica
-   \item[$Hz$] Hertz - Unidade de Frequência (Ciclos por Segundo)
-   \item[$VA$] Volt-Ampere - Unidade de potência elétrica
-   \item[$dB\mu V$] Decibel microVolt - Decibéis relativos a um microVolt
-   \item[$dB\mu V/m$] Decibel microVolt por metro - Decibéis relativos a um microVolt por metro
-   \item[$mm$] Milimetros - Unidade de comprimento (1 metro divido por Mil)
-   \item[$mm^{2}$] Milimetros Quadrados - Unidade de área
-   \item[$\,^{\circ}\mathrm{C}$] Grau Celcius - Unidade de temperatura
-\end{simbolos}
+% \begin{simbolos}
+%   \item[$V$] Volts - Unidade de potencial elétrico
+%   \item[$A$] Ampere - Unidade de Corrente Elétrica
+%   \item[$\Omega$] Ohms - Unidade de resistência elétrica
+%   \item[$F$] Faradays - Unidade de capacitância elétrica
+%   \item[$H$] Henry - Unidade de indutância elétrica
+%   \item[$W$] Watt's - Unidade de potência elétrica
+%   \item[$Hz$] Hertz - Unidade de Frequência (Ciclos por Segundo)
+%   \item[$VA$] Volt-Ampere - Unidade de potência elétrica
+%   \item[$dB\mu V$] Decibel microVolt - Decibéis relativos a um microVolt
+%   \item[$dB\mu V/m$] Decibel microVolt por metro - Decibéis relativos a um microVolt por metro
+%   \item[$mm$] Milimetros - Unidade de comprimento (1 metro divido por Mil)
+%   \item[$mm^{2}$] Milimetros Quadrados - Unidade de área
+%   \item[$\,^{\circ}\mathrm{C}$] Grau Celcius - Unidade de temperatura
+% \end{simbolos}
 
 % ----------------------------------------------------------
 % SUMÁRIO
@@ -356,7 +360,8 @@
 % ----------------------------------------------------------
 % REFERÊNCIAS BIBLIOGRÁFICAS
 % ----------------------------------------------------------
-\bibliography{./bib/bibTCC}
+%\bibliography{./bib/estabilizacao_imagem_ref}
+\bibliography{./bib/estabilizacao_imagem_ref}
 
 % ----------------------------------------------------------
 % GLOSSARIO

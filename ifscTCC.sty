@@ -1,9 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina                      
+% Instituto Federal de Educaï¿½ï¿½o, Ciï¿½ncia e Tecnologia de Santa Catarina                      
 %---------------------------------------------------------------------------
 % Definicao do arquivo de estilo ifscTCC - Modelo de TCC para o IFSC
 %---------------------------------------------------------------------------
-% Versão 20191 - Baseada na classe 2018/11/24 v-1.9.7 abnTeX2
+% Versï¿½o 20191 - Baseada na classe 2018/11/24 v-1.9.7 abnTeX2
 %                                                           
 % (c)2019 Daniel Henrique Camargo de Souza (dansouza.mail@gmail.com)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -16,11 +16,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                         
-% Variáveis identificadoras do trabalho
+% Variï¿½veis identificadoras do trabalho
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                         
 %---------------------------------------------------------------------------
 % Instituicao
-\providecommand{\ABNTinstituicaodata}{Instituto Federal de Educação, Ciência e Tecnologia de Santa Catarina}
+\providecommand{\ABNTinstituicaodata}{Instituto Federal de Educaï¿½ï¿½o, Ciï¿½ncia e Tecnologia de Santa Catarina}
 \providecommand{\ABNTinstituicaogenerodata}{o}
 \renewcommand{\instituicao}[2][a]%
     {\renewcommand{\ABNTinstituicaodata}{#2}\renewcommand{\ABNTinstituicaogenerodata}{#1}}
@@ -52,7 +52,7 @@
     {\renewcommand{\IFSCdocumentodata}{#2} \renewcommand{\IFSCdocumentogenerodata}{#1} \detgenerodoc{#2}}
 
 %---------------------------------------------------------------------------
-% Titulo e subtítulo
+% Titulo e subtï¿½tulo
 \newcommand{\tituloformat}[1]{\bfseries\MakeUppercase{#1}}
 
 \providecommand{\subtitulodata}{}
@@ -76,7 +76,7 @@
 
 %-!
 % Banca - Ate 7 membros, fora orientador e coorientador.
-% Se o nro de membros passar de 4, será criada uma folha adicional
+% Se o nro de membros passar de 4, serï¿½ criada uma folha adicional
 \newcommand{\bancaformat}{}
 
 \providecommand\orientadorbancadata{nao}
@@ -132,7 +132,7 @@
 %---------------------------------------------------------------------------
 % Texto da folha de rosto
 \newcommand{\IFSCcomentariodata}{\IFSCdocumentodata\ submetid\IFSCdocumentogenerodata\ 
- \aoa{\IFSCcursogenerodata}\ \IFSCcursodata\ para a obtenção do Grau de \graudata.}
+ \aoa{\IFSCcursogenerodata}\ \IFSCcursodata\ para a obtenï¿½ï¿½o do Grau de \graudata.}
 
 %\renewcommand{\comentarioformat}{\small}
 
@@ -175,27 +175,27 @@
 \newcommand{\epigrafeautorformat}{\hfill}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                         
-% Comandos e formatos customizáveis 
+% Comandos e formatos customizï¿½veis 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                                         
 
 %---------------------------------------------------------------------------
-% Funções de ajustes aos textos de acordo com o genero
+% Funï¿½ï¿½es de ajustes aos textos de acordo com o genero
 \newcommand{\esteEsta}[1]{\ifthenelse{\equal{#1}{a}}{Esta}{Este}}
 \newcommand{\aoa}[1]{{\ifthenelse{\equal{#1}{a}}{\`a}{ao}}}
 \newcommand{\peloPela}[1]{\ifthenelse{\equal{#1}{o}}{pelo}{pela}}
 
 %---------------------------------------------------------------------------
-% Determina o genero do documento pré-definido
+% Determina o genero do documento prï¿½-definido
 \newcommand{\detgenerodoc}[1] % Me dei por vencido - Verificar no futuro sobre expansao de commands
-    {\ifthenelse{\equal{#1}{Relatório}\or\equal{#1}{Trabalho}\or
-                 \equal{#1}{Trabalho de Conclusão de Curso}\or
-		 \equal{#1}{Relatório de Pós-Doutorado}}
+    {\ifthenelse{\equal{#1}{Relatï¿½rio}\or\equal{#1}{Trabalho}\or
+                 \equal{#1}{Trabalho de Conclusï¿½o de Curso}\or
+		 \equal{#1}{Relatï¿½rio de Pï¿½s-Doutorado}}
 	{\renewcommand{\IFSCdocumentogenerodata}{o}}
     }
 
 %-------------------------------------------------------------------------------
-% Para listagens de algoritmos e de código, recomenda-se consultar os
-% pacotes algorithms e lstlistings, que são usados para definir esses
+% Para listagens de algoritmos e de cï¿½digo, recomenda-se consultar os
+% pacotes algorithms e lstlistings, que sï¿½o usados para definir esses
 % dois tipos de elementos de texto e possuem os comandos
 % \listofalgorithms e \lstlistoflistings, respectivamente.
 %-------------------------------------------------------------------------------
