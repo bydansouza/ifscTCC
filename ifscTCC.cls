@@ -1,9 +1,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Instituto Federal de Educação, ciência e tecnologia de Santa Catarina                   
+% Instituto Federal de Educaï¿½ï¿½o, ciï¿½ncia e tecnologia de Santa Catarina                   
 %---------------------------------------------------------------------------
-% Arquivo para classe LaTex - Normas para apresentação de TCC do IFSC CÂMPUS Florianópolis (3ª Edição - Novembro de 2018
+% Arquivo para classe LaTex - Normas para apresentaï¿½ï¿½o de TCC do IFSC Cï¿½MPUS Florianï¿½polis (3ï¿½ Ediï¿½ï¿½o - Novembro de 2018
 %---------------------------------------------------------------------------
-% Versão 20191 - Baseada na classe 2018/11/24 v-1.9.7 abnTeX2 e UFSCthesis Versão 20100631
+% Versï¿½o 20191 - Baseada na classe 2018/11/24 v-1.9.7 abnTeX2 e UFSCthesis Versï¿½o 20100631
 %                                                           
 % (c)2019 Daniel Henrique Camargo de Souza (dansouza.mail@gmail.com)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -15,64 +15,65 @@
 % 2. under the GNU Public License.                          
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
-\NeedsTeXFormat{LaTeX2e}    % Identifica a versão de LaTeX em uso
+\NeedsTeXFormat{LaTeX2e}    % Identifica a versï¿½o de LaTeX em uso
 \ProvidesClass{ifscTCC}     % Informa o tipo de documentclass
 
 %---------------------------------------------------------------------------
-% Passa as opções não interessantes para a classe base abnTeX2
+% Passa as opï¿½ï¿½es nï¿½o interessantes para a classe base abnTeX2
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{abntex2}}
 \ProcessOptions
 
 %---------------------------------------------------------------------------
-% Carrega classe abnTeX2, com padrão de página A4, fonte 12pt, frente e verso
+% Carrega classe abnTeX2, com padrï¿½o de pï¿½gina A4, fonte 12pt, frente e verso
 \LoadClass[
-	% -- opções da classe memoir --
+	% -- opï¿½ï¿½es da classe memoir --
 	12pt,				% tamanho da fonte - Norma para TCC IFSC
-	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	oneside,			% Impressão em um Lado
+	openright,			% capï¿½tulos comeï¿½am em pï¿½g ï¿½mpar (insere pï¿½gina vazia caso preciso)
+	oneside,			% Impressï¿½o em um Lado
 	a4paper,			% tamanho do papel. 
-	% -- opções da classe abntex2 --
-	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
-	% -- opções do pacote babel --
-	english,			% idioma adicional para hifenização
-	french,             % idioma adicional para hifenização
-	spanish,			% idioma adicional para hifenização
-	brazil,				% o último idioma é o principal do documento
+	% -- opï¿½ï¿½es da classe abntex2 --
+	chapter=TITLE,		% tï¿½tulos de capï¿½tulos convertidos em letras maiï¿½sculas
+	%section=TITLE,		% tï¿½tulos de seï¿½ï¿½es convertidos em letras maiï¿½sculas
+	%subsection=TITLE,	% tï¿½tulos de subseï¿½ï¿½es convertidos em letras maiï¿½sculas
+	%subsubsection=TITLE,% tï¿½tulos de subsubseï¿½ï¿½es convertidos em letras maiï¿½sculas
+	% -- opï¿½ï¿½es do pacote babel --
+	english,			% idioma adicional para hifenizaï¿½ï¿½o
+	french,             % idioma adicional para hifenizaï¿½ï¿½o
+	spanish,			% idioma adicional para hifenizaï¿½ï¿½o
+	brazil,				% o ï¿½ltimo idioma ï¿½ o principal do documento
 	]{abntex2}
 
 % ----------------------------------------------------------
 % PACOTES
 % ----------------------------------------------------------
+\usepackage{enumitem}
 
 \usepackage{helvet}             % Fonte Arial 
 \usepackage{lmodern}			% Usa a fonte Latin Modern
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
-\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
-\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversï¿½o automï¿½tica dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parï¿½grafo de cada seï¿½ï¿½o.
 \usepackage{color}				% Controle das cores
-\usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{subfig}             % Inclusão de subfiguras
-\usepackage{listings}           % Inclusão de códigos de softwares
-\usepackage{float}              % Inclusão de numeros float
-\usepackage[final]{pdfpages}    % Inclusão de PDFs
-\usepackage{microtype}          % para melhorias de justificação
+\usepackage{graphicx}			% Inclusï¿½o de grï¿½ficos
+\usepackage{subfig}             % Inclusï¿½o de subfiguras
+\usepackage{listings}           % Inclusï¿½o de cï¿½digos de softwares
+\usepackage{float}              % Inclusï¿½o de numeros float
+\usepackage[final]{pdfpages}    % Inclusï¿½o de PDFs
+\usepackage{microtype}          % para melhorias de justificaï¿½ï¿½o
 
-% Pacotes adicionais, usados no anexo do modelo de folha de identificação
+% Pacotes adicionais, usados no anexo do modelo de folha de identificaï¿½ï¿½o
 \usepackage{multicol}
 \usepackage{multirow}
 
-% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
-\usepackage{lipsum}				% para geração de dummy text
+% Pacotes adicionais, usados apenas no ï¿½mbito do Modelo Canï¿½nico do abnteX2
+\usepackage{lipsum}				% para geraï¿½ï¿½o de dummy text
 
-% Pacotes de citações
-\usepackage[brazilian,hyperpageref]{backref}	% Paginas com as citações na bibl
-\usepackage[alf,ifscbib]{abntex2cite}				% Citações padrão ABNT
+% Pacotes de citaï¿½ï¿½es
+\usepackage[brazilian,hyperpageref]{backref}	% Paginas com as citaï¿½ï¿½es na bibl
+\usepackage[alf,ifscbib]{abntex2cite}				% Citaï¿½ï¿½es padrï¿½o ABNT
 
-\usepackage[brazil]{babel}	% coloca as coisas em portugues no sumário.
-\usepackage[normalem]{ulem}	% provê sublinhados para textos (\ul)
+\usepackage[brazil]{babel}	% coloca as coisas em portugues no sumï¿½rio.
+\usepackage[normalem]{ulem}	% provï¿½ sublinhados para textos (\ul)
 
 \usepackage{indentfirst}	% indenta a primeira linha dos paragrafos
 \usepackage{remreset}		% reinicia contadores
@@ -81,14 +82,14 @@
 % usado por abntex2-fichacatalografica.tex
 \usepackage{lastpage}
 
-% pacote para espaçamentos
+% pacote para espaï¿½amentos
 \usepackage{setspace}
 
 % pacote para simbolos REGISTERED e ESPECIAL
 \usepackage{textcomp}
 
 %---------------------------------------------------------------------------
-% Definicao da geometria da página - Conforme Norma para TCC IFSC
+% Definicao da geometria da pï¿½gina - Conforme Norma para TCC IFSC
 \RequirePackage[
     inner=3.0cm,
     outer=2.0cm,
@@ -101,38 +102,38 @@
 \RequirePackage{ifscTCC}        % Inclui ifscTCC.sty
 
 % ----------------------------------------------------------
-% CONFIGURAÇÕES DE PACOTES
+% CONFIGURAï¿½ï¿½ES DE PACOTES
 % ----------------------------------------------------------
 \renewcommand{\familydefault}{\sfdefault}             % Fonte Arial
 
-% Definições para Título(chapter), subtítulo(Section) e demais - Conforme norma para TCC IFSC
-\renewcommand{\ABNTEXchapterfontsize}{\normalsize\scshape\bfseries} % Maiúscula e negrito
+% Definiï¿½ï¿½es para Tï¿½tulo(chapter), subtï¿½tulo(Section) e demais - Conforme norma para TCC IFSC
+\renewcommand{\ABNTEXchapterfontsize}{\normalsize\scshape\bfseries} % Maiï¿½scula e negrito
 \renewcommand{\ABNTEXsectionfontsize}{\normalsize\bfseries} %Negrito
 \renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}  %Normal
 \renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize\itshape} %Italico
 
 \renewcommand{\ABNTEXsectionfont}{\sffamily}
 
-% Remover Cabeçalho nas paginas Pares
+% Remover Cabeï¿½alho nas paginas Pares
 \makepagestyle{parpage}
 \makeevenhead{parpage}{\ABNTEXfontereduzida\thepage}{}{}
 \makeoddhead{parpage}{}{}{\ABNTEXfontereduzida\thepage}
   
-% Espaço 1,5 após os capitulos
+% Espaï¿½o 1,5 apï¿½s os capitulos
 \setlength{\afterchapskip}{0.5cm} %\lineskip single space
 
-% Espaçamentos entre linhas e parágrafos 
-\setlength{\parindent}{2.0cm}   % Identação do paragrafo conforme norma para TCC IFSC
+% Espaï¿½amentos entre linhas e parï¿½grafos 
+\setlength{\parindent}{2.0cm}   % Identaï¿½ï¿½o do paragrafo conforme norma para TCC IFSC
 
-% Controle do espaçamento entre um parágrafo e outro:
-\setlength{\parskip}{0.1cm}  % tente também \onelineskip
+% Controle do espaï¿½amento entre um parï¿½grafo e outro:
+\setlength{\parskip}{0.1cm}  % tente tambï¿½m \onelineskip
 
-% Configurações do pacote backref
-% Usado sem a opção hyperpageref de backref
-\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
-% Texto padrão antes do número das páginas
+% Configuraï¿½ï¿½es do pacote backref
+% Usado sem a opï¿½ï¿½o hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) pï¿½gina(s):~}
+% Texto padrï¿½o antes do nï¿½mero das pï¿½ginas
 \renewcommand{\backref}{}
-% Define os textos da citação
+% Define os textos da citaï¿½ï¿½o
 \renewcommand*{\backrefalt}[4]{
 	\ifcase #1 %
 		Nenhuma cita{\c c}\~ao no texto.%
@@ -142,17 +143,17 @@
 		Citado #1 vezes nas p\'aginas #2.%
 	\fi}%
 
-% Comandos criados pelo usuário
+% Comandos criados pelo usuï¿½rio
 \newcommand{\afazer}[1]{{\color{red}{#1}}} % Para destacar uma parte a ser trabalhada
 
 % Fontes das figuras
 \renewcommand{\fonte}[1]{\legend{\hspace{-218pt}Fonte: {#1}}}
 
-% Configurações de aparência do PDF final
+% Configuraï¿½ï¿½es de aparï¿½ncia do PDF final
 \definecolor{blue}{RGB}{41,5,195}
 \definecolor{pretoifsc}{RGB}{0,0,0}
 
-% informações do PDF
+% informaï¿½ï¿½es do PDF
 \makeatletter
 \hypersetup{
     %pagebackref=true,
@@ -160,7 +161,7 @@
 	pdfauthor={\@author},
    	pdfsubject={\imprimirpreambulo},
 	%pdfcreator={LaTeX with abnTeX2},
-	%pdfkeywords={abnt}{latex}{abntex}{abntex2}{relatório técnico}, 
+	%pdfkeywords={abnt}{latex}{abntex}{abntex2}{relatï¿½rio tï¿½cnico}, 
 	colorlinks=true,       		% false: boxed links; true: colored links
     linkcolor=pretoifsc,		          	% color of internal links
     citecolor=pretoifsc,        		% color of links to bibliography

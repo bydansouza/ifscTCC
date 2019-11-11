@@ -1,2 +1,395 @@
-\chapter{Exemplificando um Apêndice}
-Texto do Apêndice aqui. 
+\chapter{Código fonte da interface de controle}
+% ----------------------------------------------------------
+\label{app:steering_wheel}
+	
+\lstset{language=C++}
+\begin{lstlisting}
+#include<Wire.h>
+#include <ros.h>
+#include <std_msgs/Int8.h>
+#include <std_msgs/UInt8.h>
+#include <std_msgs/Bool.h>
+
+#define USE_USBCON
+
+//------------------------------------------------------------------------------
+const int A = 8;//L1
+const int B = 9;//L2
+const int C = 10;//R1
+const int D = 11;//R2
+
+//Endereco I2C do MPU6050
+const int MPU=0x68;
+
+int8_t ACCEL_XOUT_H;
+int8_t ACCEL_XOUT_L;
+int8_t ACCEL_YOUT_H;
+int8_t ACCEL_YOUT_L;
+uint8_t B_CTRL;
+
+ros::NodeHandle nh;	
+std_msgs::Int8 power_ref, power_dif;
+std_msgs::UInt8 ctrl_mode;
+
+ros::Publisher pub_ctrl_mode("ctrl_mode", &ctrl_mode);
+ros::Publisher pub_power_ref("ctrl_power_ref", &power_ref);
+ros::Publisher pub_power_dif("ctrl_power_dif", &power_dif);
+
+//------------------------------------------------------------------------------
+void setup()
+{
+    pinMode(A, INPUT);
+    pinMode(B, INPUT);
+    pinMode(C, INPUT);
+    pinMode(D, INPUT);
+
+    nh.initNode();
+    nh.advertise(pub_power_ref); 
+    nh.advertise(pub_power_dif);
+    nh.advertise(pub_ctrl_mode);
+
+    Wire.begin();
+    Wire.beginTransmission(MPU);
+    Wire.write(0x6B);
+
+    //Inicializa o MPU-6050
+    Wire.write(0); 
+    Wire.endTransmission(true); 
+}
+
+
+void loop()
+{
+    Wire.beginTransmission(MPU);
+    Wire.write(0x3B);  // starting with register 0x3B (ACCEL_XOUT_H)
+    Wire.endTransmission(false);
+    
+    //Solicita os dados do sensor
+    Wire.requestFrom(MPU, 14, true); 
+
+    //Armazena o valor dos sensores nas variaveis correspondentes
+    ACCEL_XOUT_H = Wire.read(); //0x3B (ACCEL_XOUT_H)
+    ACCEL_XOUT_L = Wire.read(); //0x3C (ACCEL_XOUT_L)     
+    ACCEL_YOUT_H = Wire.read(); //0x3D (ACCEL_YOUT_H)
+    ACCEL_YOUT_L = Wire.read(); //0x3E (ACCEL_YOUT_L)
+
+    power_ref.data = ACCEL_XOUT_H;
+    power_dif.data = ACCEL_YOUT_H;
+    
+    B_CTRL = 0x00;
+    if(digitalRead(A)==LOW){
+        B_CTRL = 0b00000001;
+    }
+    if(digitalRead(B)==LOW){
+        B_CTRL |= 0b00000010;
+    }
+    if(digitalRead(C)==LOW){
+        B_CTRL |= 0b00000100;
+    }   
+    if(digitalRead(D)==LOW){
+        B_CTRL |= 0b00001000;
+    }
+
+    pub_power_ref.publish(&power_ref);
+    pub_power_dif.publish(&power_dif);
+    pub_ctrl_mode.publish(&ctrl_mode); 
+
+    //---------------------------------------
+    nh.spinOnce();
+    delay(10); 	
+}
+\end{lstlisting}
+\pagebreak 
+
+\chapter{Código fonte do driver dos motores}
+% ----------------------------------------------------------
+\label{app:driver_node}
+	
+\lstset{language=C++}
+\begin{lstlisting}
+#include <avr/io.h>
+#include <ros.h>
+#include <std_msgs/Int8.h>
+#include <std_msgs/UInt8.h>
+#include <std_msgs/Bool.h>
+#define USE_USBCON
+
+ros::NodeHandle  nh;
+	
+//---------------------------------------
+#define ENA1 PB0
+#define IN11 PB1
+#define IN12 PB2
+#define ENB1 PB3
+#define IN13 PB4
+#define IN14 PB5
+
+#define ENA2 PC0
+#define IN21 PC1
+#define IN22 PC2
+#define ENB2 PC3
+#define IN23 PC4
+#define IN24 PC5
+
+#define IN31 PD0
+#define IN32 PD1
+#define IN33 PD2
+#define IN34 PD3
+#define IN35 PD4
+#define IN36 PD5
+#define IN37 PD6
+#define IN38 PD7
+
+//---------------------------------------
+std_msgs::UInt8 dutycycle_L_msg, dutycycle_R_msg;
+uint8_t dutycycle_L, dutycycle_R;
+std_msgs::Bool spin_L_msg, spin_R_msg;
+bool spin_L, spin_R;
+
+//---------------------------------------
+void dutycycle_L_callback(const std_msgs::UInt8 &dutycycle_L_msg)
+{
+    dutycycle_L = dutycycle_L_msg.data;
+}
+ros::Subscriber<std_msgs::UInt8> sub_command_L("power_L", &dutycycle_L_callback);
+
+//---------------------------------------
+void spin_L_callback(const std_msgs::Bool &spin_L_msg)
+{
+    spin_L = spin_L_msg.data;
+
+}
+ros::Subscriber<std_msgs::Bool> sub_command_L("spin_L", &spin_L_callback);
+
+//---------------------------------------
+void dutycycle_R_callback(const std_msgs::UInt8 &dutycycle_R_msg)
+{
+    dutycycle_R = dutycycle_R_msg.data;
+    if(dutycycle_R < 0){
+      dutycycle_R = (-1)*dutycycle_R;
+      spin_R = 0xff;
+    }
+    else{
+      spin_R = 0x00;
+    }
+}
+ros::Subscriber<std_msgs::UInt8> sub_command_R("power_R", &dutycycle_R_callback);
+
+//---------------------------------------
+void spin_R_callback(const std_msgs::Bool &spin_R_msg)
+{
+    spin_R = spin_R_msg.data;
+
+}
+ros::Subscriber<std_msgs::Bool> sub_command_L("spin_R", &spin_R_callback);
+
+//---------------------------------------
+void setup()
+{
+    dutycycle_L = 0x00;
+    dutycycle_R = 0x00;
+
+    DDRB = 0xFF;
+    DDRC = 0xFF;
+    DDRD = 0xFF;
+
+    PCMSK2 = 0x00;
+    UCSR0B = 0x00;
+
+    PORTB = 0x00;
+    PORTC = 0x00;
+    PORTD = 0x00;
+  
+    nh.initNode();
+    nh.subscribe(sub_command_L); 
+    nh.subscribe(sub_command_R);
+}
+
+void loop()
+{
+    PORTB = 0x00;
+    PORTC = 0x00;
+    for(uint8_t i=0; i<256; i++)
+    {     
+      //---------------------------------------
+      if(i > dutycycle_L)
+        PORTC = 0x00;
+      else
+        if(spin_R)
+          PORTC = 0b00101101;
+        else
+          PORTC = 0b00011011;
+
+      //---------------------------------------
+      if(i > dutycycle_R)
+        PORTB = 0x00;      
+      else
+        if(spin_L)
+          PORTB = 0b00101101;
+        else
+          PORTB = 0b00011011;
+
+      //---------------------------------------
+      nh.spinOnce(); 
+    }   	
+}
+\end{lstlisting}
+\pagebreak 
+
+\chapter{Código fonte do sistema de controle}
+% ----------------------------------------------------------
+\label{app:controller}
+	
+\lstset{language=python}
+\begin{lstlisting}
+#!/usr/bin/env python
+from __future__ import print_function
+import rospy
+from std_msgs.msg import Int8
+from std_msgs.msg import UInt8
+from std_msgs.msg import Bool
+from geometry_msgs.msg import Point32
+
+class Controller(object):
+    """docstring for Controller"""
+    def __init__(self):
+        rospy.init_node('controller_py', anonymous=True)
+
+        self.rate = rospy.Rate(40)#Hz
+
+        self.ctrl_mode = 0
+        self.power_ref = 0
+        self.power_dif = 0
+        self.power_ref_input = 0
+        self.power_dif_input = 0 
+
+        self.spin_L = True
+        self.spin_R = True         
+        self.power_L = 0
+        self.power_R = 0
+
+        self.stereo_vision_central_histogram = 0
+
+    def signals_publisher_init(self):
+        self.pub_power_L = rospy.Publisher('power_L', Int8, queue_size=10)
+        self.pub_power_R = rospy.Publisher('power_R', Int8, queue_size=10)
+        self.pub_spin_L = rospy.Publisher('spin_L', Bool, queue_size=10)
+        self.pub_spin_R = rospy.Publisher('spin_R', Bool, queue_size=10)
+
+    def signals_subscriber_init(self):
+        rospy.Subscriber("ctrl_mode", UInt8, self.ctrl_mode_callback)
+        rospy.Subscriber("ctrl_power_ref", Int8, self.power_ref_callback)
+        rospy.Subscriber("ctrl_power_dif", Int8, self.power_dif_callback)  
+        rospy.Subscriber("stereo_vision_central_depth_histogram", UInt8, self.stereo_vision_central_histogram_callback) 
+
+    def ctrl_mode_callback(self, message):
+        self.ctrl_mode = message.data
+
+    def power_ref_callback(self, message):
+        self.power_ref_input = message.data
+
+    def power_dif_callback(self, message):
+        self.power_dif_input = message.data
+
+    def stereo_vision_central_histogram_callback(self, message):
+        self.stereo_vision_central_histogram = message.data
+
+    def main_loop(self):
+        self.signals_subscriber_init()
+        self.signals_publisher_init()
+        
+        while not rospy.is_shutdown():
+            self.rate.sleep() 
+            
+            self.power_ref = 0 
+            self.power_dif = 0               
+
+            if self.ctrl_mode == 1:# A
+                self.power_ref = 3*self.power_ref_input
+                set_power = True
+            elif self.ctrl_mode == 4:# C
+                self.power_dif = 3*self.power_dif_input
+                set_power = True           
+            elif self.ctrl_mode == 5:# A and C
+                self.power_ref = 3*self.power_ref_input
+                self.power_dif = 3*self.power_dif_input
+                set_power = True  
+            elif self.ctrl_mode == 2:# B
+                self.power_L = 192
+                self.power_R = 0
+                set_power = False 
+            elif self.ctrl_mode == 8:# D
+                self.power_L = 0
+                self.power_R = 192
+                set_power = False 
+            elif self.ctrl_mode == 10:# B and D
+                self.power_L = 192
+                self.power_R = 192
+                set_power = False
+            elif self.ctrl_mode == 3:# A and B
+                self.power_L = -192
+                self.power_R = 0
+                set_power = False 
+            elif self.ctrl_mode == 12:# C and D
+                self.power_L = 0
+                self.power_R = -192
+                set_power = False  
+            elif self.ctrl_mode == 15:# A and B and C and D
+                self.power_L = -192
+                self.power_R = -192
+                set_power = False 
+
+            if set_power is True:
+                self.driver_L = self.power_ref + self.power_dif + self.power_comp:
+                if self.driver_L > 255:
+                    self.driver_L = 255
+                if self.driver_L < -255:
+                    self.driver_L = -255
+
+                if self.driver_L<0:
+                    self.driver_L = np.uint8(-1*self.driver_L)
+                    self.spin_L = False
+                else:
+                    self.driver_L = np.uint8(self.driver_L)
+                    self.spin_L = True
+
+                self.driver_R = self.power_ref - self.power_dif - self.power_comp:
+                if self.driver_R > 255:
+                    self.driver_R = 255
+                if self.driver_R < -255:
+                    self.driver_R = -255
+
+                if self.driver_R<0:
+                    self.driver_R = np.uint8(-1*self.driver_R)
+                    self.spin_R = False
+                else:
+                    self.driver_R = np.uint8(self.driver_R)
+                    self.spin_R = True
+
+            print('stereo_vision_central_histogram:', self.stereo_vision_central_histogram)
+
+            if self.stereo_vision_central_histogram > 200:
+                print('break power!!!!')
+                self.power_ref = np.uint8(0)
+                self.power_dif = np.uint8(0)
+
+            print(self.power_L, self.power_R)
+            self.pub_spin_L.publish(self.spin_L)
+            self.pub_spin_R.publish(self.spin_R)
+            self.pub_power_L.publish(self.power_L)
+            self.pub_power_R.publish(self.power_R)
+
+
+
+# ======================================================================================================================
+def controller():
+    controller = Controller().main_loop()
+
+if __name__ == '__main__':
+    try:
+        controller()
+    except rospy.ROSInterruptException:
+        pass
+
+\end{lstlisting}
+\pagebreak 
